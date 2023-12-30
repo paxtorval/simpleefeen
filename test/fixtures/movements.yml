@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concept: MyString
+  description: MyString
+  original_amount: 1
+  original_currency: MyString
+  movement_date: 2023-12-10
+  settled_date: 2023-12-10
+
+two:
+  concept: MyString
+  description: MyString
+  original_amount: 1
+  original_currency: MyString
+  movement_date: 2023-12-10
+  settled_date: 2023-12-10

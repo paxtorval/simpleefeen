@@ -1,0 +1,49 @@
+<%= form_with(model: movement) do |form| %>
+  <% if movement.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
+
+      <ul>
+        <% movement.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="font-semibold my-3">
+    <%= form.label :concept, style: "display: block" %>
+    <%= form.text_field :concept %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= form.label :original_amount, style: "display: block" %>
+    <%= form.number_field(:original_amount, step: 0.01, placeholder: '0.00') %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= form.label :original_currency, style: "display: block" %>
+    <%= form.text_field(:original_currency, maxlength: 3) %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= form.label :movement_date, style: "display: block" %>
+    <%= form.date_field(:movement_date, value: Date.today) %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= form.label :settled_date, style: "display: block" %>
+    <%= form.date_field(:settled_date, value: Date.today) %>
+  </div>
+
+  <div class="my-3">
+    <button class="w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none p-15">
+    <%= form.submit %>
+    </button>
+  </div>
+<% end %>

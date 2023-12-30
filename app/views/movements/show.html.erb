@@ -1,0 +1,28 @@
+<div class="flex flex-col font-mono">
+  <h1 class="font-extrabold">Movement <%= @movement.concept %></h1>
+  <p style="color: green" class="di"><%= notice %></p>
+
+  <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 shadow-md bg-clip-border rounded-xl">
+    <table class="w-full text-left table-auto min-w-max">
+      <thead>
+        <tr>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">id</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Concept</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Description</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Amount</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Currency</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @movement %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to "Edit this movement", edit_movement_path(@movement), class:"w-full text-center p-5 rounded bg-blue-600 text-white my-3" %>
+
+  <%= link_to "Back to movements", movements_path, class:"w-full text-center p-5 rounded bg-blue-600 text-white my-3" %>
+
+  <%= button_to "Destroy this movement", @movement, method: :delete, class:"w-full text-center p-5 rounded bg-blue-600 text-white my-3" %>
+</div>

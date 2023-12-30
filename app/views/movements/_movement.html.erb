@@ -1,0 +1,31 @@
+<tr id="<%= dom_id movement %>">
+  <td class="p-5">
+    <%= movement.id %>
+  </td>
+
+  <td class="p-5">
+    <%= movement.concept %>
+  </td>
+
+  <td class="p-5">
+    <%= movement.description %>
+  </td class="p-5">
+
+  <td class="p-5">
+    <%= movement.original_amount %>
+  </td>
+
+  <td class="p-5">
+    <%= movement.original_currency %>
+  </td>
+
+  <td class="p-5">
+    <%= movement.settled_date %>
+  </td>
+  
+  <% if defined?(show_movement_link) && show_movement_link %>
+    <td class="p-5 underline">
+      <%= link_to "Show this movement", movement %>
+    </td>
+  <% end %>
+</tr>
