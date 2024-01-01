@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_12_123952) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_31_110325) do
+  create_table "assets", force: :cascade do |t|
+    t.integer "kind"
+    t.string "country"
+    t.string "currency"
+    t.text "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "movements", force: :cascade do |t|
     t.string "concept"
     t.string "description"
@@ -20,6 +30,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_12_123952) do
     t.date "settled_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "asset_id", null: false
+    t.index ["asset_id"], name: "index_movements_on_asset_id"
   end
 
+  add_foreign_key "movements", "assets"
 end

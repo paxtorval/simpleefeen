@@ -65,6 +65,6 @@ class MovementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movement_params
-      params.require(:movement).permit(:concept, :description, :original_amount, :original_currency, :movement_date, :settled_date)
+      params.require(:movement).permit(:concept, :description, :original_amount, :original_currency, :movement_date, :settled_date, :asset_id)
     end
 end

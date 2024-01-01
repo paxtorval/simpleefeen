@@ -28,17 +28,22 @@
 
   <div class="font-semibold my-3">
     <%= form.label :original_currency, style: "display: block" %>
-    <%= form.text_field(:original_currency, maxlength: 3) %>
+    <%= form.select :original_currency, options_for_select(ApplicationHelper.all_currencies, movement.original_currency), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="font-semibold my-3">
     <%= form.label :movement_date, style: "display: block" %>
-    <%= form.date_field(:movement_date, value: Date.today) %>
+    <%= form.date_field(:movement_date, value: movement.movement_date || Date.today) %>
   </div>
 
   <div class="font-semibold my-3">
     <%= form.label :settled_date, style: "display: block" %>
-    <%= form.date_field(:settled_date, value: Date.today) %>
+    <%= form.date_field(:settled_date, value: movement.settled_date || Date.today) %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= form.label :asset_id, style: "display: block" %>
+    <%= form.select(:asset_id, options_for_select(MovementsHelper.get_all_assets, movement.asset_id)) %>
   </div>
 
   <div class="my-3">
