@@ -47,6 +47,10 @@ gem 'country_select', '~> 8.0'
 
 gem 'money', '~> 6.16'
 
+gem 'solid_queue', '~> 0.1.2'
+
+gem "roo", "~> 2.10.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]

@@ -1,36 +1,39 @@
-<div class="flex flex-col font-mono">
+<div class="flex flex-col font-mono w-full">
   <p style="color: green"><%= notice %></p>
 
   <h1 class="max-w-lg mx-auto -mt-16 text-left max-w-sm overflow-hidden py-5 font-extrabold">All Movements</h1>
 
   <div id="movements" class="py-5">
-    <% if @movements.empty? %>
-      <div class="h-4">
-        There are no movements to be shown
-      </div>
-    <% else %>
-      <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 shadow-md bg-clip-border rounded-xl">
-        <table class="w-full text-left table-auto min-w-max">
-            <thead class="table-header-group">
-              <tr>
-                <th class="p-5 border-b border-gray-100 bg-gray-200">id</th>
-                <th class="p-5 border-b border-gray-100 bg-gray-200">Asset</th> 
-                <th class="p-5 border-b border-gray-100 bg-gray-200">Concept</th>
-                <th class="p-5 border-b border-gray-100 bg-gray-200">Description</th>
-                <th class="p-5 border-b border-gray-100 bg-gray-200">Amount</th>
-                <th class="p-5 border-b border-gray-100 bg-gray-200">Currency</th>
-                <th class="p-5 border-b border-gray-100 bg-gray-200">Date</th>
-                <th class="p-5 border-b border-gray-100 bg-gray-200">Action</th>
-              </tr>
-            </thead>
-            <tbody class="table-row-group">
-              <% @movements.each do |movement| %>
-                <%= render movement, show_movement_link: true %>
-              <% end %> 
-            </tbody>
-        </table>
-      </div>
-    <% end %>
+
+    <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 shadow-md bg-clip-border rounded-xl">
+      <table class="w-full text-left table-auto min-w-max">
+        <thead class="table-header-group">
+        <tr>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">id</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Asset</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Concept</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Description</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Amount</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Currency</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Date</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Action</th>
+        </tr>
+        </thead>
+        <tbody class="table-row-group">
+        <% if @movements.empty? %>
+          <tr>
+            <td colspan="8" class="p-5 text-center">
+              There are no movements to be shown
+            </td>
+          </tr>
+        <% else %>
+          <% @movements.each do |movement| %>
+            <%= render movement, show_movement_link: true %>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <%= link_to "New movement", new_movement_path, class: "w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none p-15" %>

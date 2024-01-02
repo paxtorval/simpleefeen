@@ -12,38 +12,38 @@
   <% end %>
 
   <div class="font-semibold my-3">
-    <%= form.label :concept, style: "display: block" %>
-    <%= form.text_field :concept %>
+    <%= form.label :concept, class: 'block' %>
+    <%= form.text_field :concept, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
   <div class="font-semibold my-3">
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.label :description, class: 'block' %>
+    <%= form.text_area :description, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
   <div class="font-semibold my-3">
-    <%= form.label :original_amount, style: "display: block" %>
-    <%= form.number_field(:original_amount, step: 0.01, placeholder: '0.00') %>
+    <%= form.label :original_amount, class: 'block' %>
+    <%= form.number_field :original_amount, step: 0.01, placeholder: '0.00', class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
   <div class="font-semibold my-3">
-    <%= form.label :original_currency, style: "display: block" %>
-    <%= form.select :original_currency, options_for_select(ApplicationHelper.all_currencies, movement.original_currency), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :original_currency, class: 'block' %>
+    <%= form.select :original_currency, options_for_select(ApplicationHelper.all_currencies, movement.original_currency), {}, { :class => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'} %>
   </div>
 
   <div class="font-semibold my-3">
-    <%= form.label :movement_date, style: "display: block" %>
-    <%= form.date_field(:movement_date, value: movement.movement_date || Date.today) %>
+    <%= form.label :movement_date, class: 'block' %>
+    <%= form.date_field :movement_date, value: movement.movement_date || Date.today, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
   <div class="font-semibold my-3">
-    <%= form.label :settled_date, style: "display: block" %>
-    <%= form.date_field(:settled_date, value: movement.settled_date || Date.today) %>
+    <%= form.label :settled_date, class: 'block' %>
+    <%= form.date_field :settled_date, value: movement.settled_date || Date.today, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
   <div class="font-semibold my-3">
-    <%= form.label :asset_id, style: "display: block" %>
-    <%= form.select(:asset_id, options_for_select(MovementsHelper.get_all_assets, movement.asset_id)) %>
+    <%= form.label :asset_id, class: 'block' %>
+    <%= form.select :asset_id, options_for_select(MovementsHelper.get_all_assets, movement.asset_id), {}, { :class => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'} %>
   </div>
 
   <div class="my-3">

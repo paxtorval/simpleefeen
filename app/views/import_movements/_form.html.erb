@@ -1,0 +1,16 @@
+<%= form_with url: '/import', method: 'post', multipart: true do |_| %>
+
+  <div class="font-semibold my-3">
+    <%= label_tag :asset_id, 'Asset', class: 'block' %>
+    <%= select_tag :asset_id, options_for_select(ApplicationHelper.all_assets), class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full' %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= label_tag :import_file, 'File to Import', class: 'block' %>
+    <%= file_field_tag :import_file %>
+  </div>
+
+  <div class="font-semibold my-3">
+    <%= submit_tag 'Import', class: 'w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none p-15' %>
+  </div>
+<% end %>
