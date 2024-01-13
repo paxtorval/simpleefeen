@@ -1,17 +1,26 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  concept: MyString
-  description: MyString
-  original_amount: 1
-  original_currency: MyString
+  concept: 'Hot Coffee'
+  description: 'Delicious coffee'
+  original_amount: -2.50
+  original_currency: 'EUR'
   movement_date: 2023-12-10
   settled_date: 2023-12-10
+  asset: bank
 
 two:
-  concept: MyString
-  description: MyString
-  original_amount: 1
-  original_currency: MyString
+  concept: 'Payslip MyCompany'
+  description: 'December 2023'
+  original_amount: 2500.00
+  original_currency: 'EUR'
   movement_date: 2023-12-10
   settled_date: 2023-12-10
+  asset: bank
+
+three:
+  concept: 'The Groceries Store'
+  description: 'All kind of groceries'
+  original_amount: -2.50
+  original_currency: 'EUR'
+  movement_date: 2023-12-10
+  settled_date: 2023-12-10
+  asset: bank

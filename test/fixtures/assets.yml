@@ -1,15 +1,20 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bank:
+  kind: 0
+  country: 'ESP'
+  currency: 'EUR'
+  name: 'TrustMe Bank'
+  description: 'Current account'
 
-one:
+stocks:
   kind: 1
-  country: MyString
-  currency: MyString
-  name: MyText
-  description: MyText
+  country: 'USA'
+  currency: 'USD'
+  name: 'Stocks Advisor'
+  description: 'Account to manage my stock plan'
 
-two:
-  kind: 1
-  country: MyString
-  currency: MyString
-  name: MyText
-  description: MyText
+pension:
+  kind: 2
+  country: 'GBR'
+  currency: 'GBP'
+  name: 'MyPension'
+  description: 'Pension plan'

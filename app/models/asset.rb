@@ -8,5 +8,5 @@ class Asset < ApplicationRecord
 
     enum :kind, [:bank_account, :stock_plan, :pension_plan]
 
-    has_many :movements
+    has_many :movements, dependent: :destroy
 end

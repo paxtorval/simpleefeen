@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class AssetsTest < ApplicationSystemTestCase
   setup do
-    @asset = assets(:one)
+    @asset = assets(:bank)
   end
 
   test "visiting the index" do

@@ -17,10 +17,10 @@ class MovementsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create movement" do
     assert_difference("Movement.count") do
-      post movements_url, params: { movement: { concept: @movement.concept, description: @movement.description, movement_date: @movement.movement_date, original_amount: @movement.original_amount, original_currency: @movement.original_currency, settled_date: @movement.settled_date } }
+      post movements_url, params: { movement: { concept: @movement.concept, description: @movement.description, movement_date: @movement.movement_date, original_amount: @movement.original_amount, original_currency: @movement.original_currency, settled_date: @movement.settled_date, asset_id: @movement.asset.id } }
     end
 
-    assert_redirected_to movement_url(Movement.last)
+    assert_redirected_to movements_url
   end
 
   test "should show movement" do
@@ -35,7 +35,7 @@ class MovementsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update movement" do
     patch movement_url(@movement), params: { movement: { concept: @movement.concept, description: @movement.description, movement_date: @movement.movement_date, original_amount: @movement.original_amount, original_currency: @movement.original_currency, settled_date: @movement.settled_date } }
-    assert_redirected_to movement_url(@movement)
+    assert_redirected_to movements_url
   end
 
   test "should destroy movement" do
