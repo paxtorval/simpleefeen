@@ -1,0 +1,8 @@
+<div class="flex flex-col font-mono w-2/3">
+  <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700">
+    <%= line_chart graphs_movements_by_day_path, round: 2, zeros: true, prefix: "€", thousands: I18n.t('number.format.delimiter') , decimal: I18n.t('number.format.separator'), title: 'Movements by day' %>
+  </div>
+  <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700">
+    <%= pie_chart graphs_credits_vs_debits_path, round: 2, zeros: true, prefix: "€", thousands: I18n.t('number.format.delimiter') , decimal: I18n.t('number.format.separator'), title: 'Credits vs Debits' %>
+  </div>
+</div>

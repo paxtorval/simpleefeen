@@ -51,6 +51,9 @@ gem 'solid_queue', '~> 0.1.2'
 
 gem "roo", "~> 2.10.0"
 
+gem 'chartkick', '~> 5.0', '>= 5.0.4'
+gem 'groupdate', '~> 6.4'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]

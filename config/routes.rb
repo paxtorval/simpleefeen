@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get 'import' => 'import_movements#index'
   post 'import' => 'import_movements#import'
 
-  # Defines the root path route ("/")
+  namespace :graphs do
+    get '' => 'simple_graphs#index'
+    get 'credits_vs_debits' => 'simple_graphs#credits_vs_debits'
+    get 'movements_by_day' => 'simple_graphs#movements_by_day'
+  end
+
   root "movements#index"
 end
