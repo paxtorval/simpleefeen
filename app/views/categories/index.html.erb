@@ -3,32 +3,31 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="max-w-lg mx-auto -mt-16 text-left max-w-sm overflow-hidden py-5 font-extrabold">All Assets</h1>
+  <h1 class="max-w-lg mx-auto -mt-16 text-left max-w-sm overflow-hidden py-5 font-extrabold">All Categories</h1>
 
-  <div id="assets" class="py-5">
+  <div id="movements" class="py-5">
     <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 shadow-md bg-clip-border rounded-xl">
       <table class="w-full text-left table-auto min-w-max">
         <thead class="table-header-group">
         <tr>
           <th class="p-5 border-b border-gray-100 bg-gray-200">id</th>
-          <th class="p-5 border-b border-gray-100 bg-gray-200">Kind</th>
-          <th class="p-5 border-b border-gray-100 bg-gray-200">Country</th>
-          <th class="p-5 border-b border-gray-100 bg-gray-200">Currency</th>
           <th class="p-5 border-b border-gray-100 bg-gray-200">Name</th>
           <th class="p-5 border-b border-gray-100 bg-gray-200">Description</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Background Color</th>
+          <th class="p-5 border-b border-gray-100 bg-gray-200">Text Color</th>
           <th class="p-5 border-b border-gray-100 bg-gray-200">Action</th>
         </tr>
         </thead>
         <tbody class="table-row-group">
-        <% if @assets.empty? %>
+        <% if @categories.empty? %>
           <tr>
-            <td colspan="7" class="p-5 text-center">
-              There are no assets to be shown
+            <td colspan="6" class="p-5 text-center">
+              There are no categories to be shown
             </td>
           </tr>
         <% else %>
-          <% @assets.each do |asset| %>
-            <%= render asset, show_asset_link: true %>
+          <% @categories.each do |category| %>
+            <%= render category, show_category_link: true %>
           <% end %>
         <% end %>
         </tbody>
@@ -36,5 +35,5 @@
     </div>
   </div>
 
-  <%= link_to "New asset", new_asset_path, class: "w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none p-15" %>
+  <%= link_to "New category", new_category_path, class: "w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none p-15" %>
 </div>

@@ -9,4 +9,5 @@ class Movement < ApplicationRecord
     validates :settled_date, presence: true
 
     belongs_to :asset
+    belongs_to :category, optional: true
 end

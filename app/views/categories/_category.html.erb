@@ -1,0 +1,27 @@
+<tr id="<%= dom_id category %>">
+  <td class="p-5">
+    <%= category.id %>
+  </td>
+
+  <td class="p-5">
+    <%= category.name %>
+  </td>
+
+  <td class="p-5">
+    <%= category.description %>
+  </td>
+
+  <td class="p-5" style="background-color: #<%= category.bg_color %>">
+    <%= category.bg_color %>
+  </td>
+
+  <td class="p-5" style="background-color: #<%= category.text_color %>">
+    <%= category.text_color %>
+  </td>
+
+  <% if action_name != "show" && show_category_link %>
+    <td class="p-5">
+      <%= link_to "Edit this category", edit_category_path(category), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    </td>
+  <% end %>
+</tr>

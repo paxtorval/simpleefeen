@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+groceries:
+  name: 'Groceries'
+  description: 'Food et al'
+  bg_color:
+  text_color: 'FFAF33'
+
+pets:
+  name: 'Pets'
+  description:
+  bg_color: 'FFAF33'
+  text_color: ''

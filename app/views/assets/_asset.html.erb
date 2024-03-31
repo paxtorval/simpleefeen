@@ -1,34 +1,33 @@
-<div id="<%= dom_id asset %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Type:</strong>
+<tr id="<%= dom_id asset %>">
+  <td class="p-5">
+    <%= asset.id %>
+  </td>
+
+  <td class="p-5">
     <%= asset.kind.titleize %>
-  </p>
+  </td>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Country:</strong>
+  <td class="p-5">
     <%= asset.country %>
-  </p>
+  </td>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Currency:</strong>
+  <td class="p-5">
     <%= asset.currency %>
-  </p>
+  </td>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+  <td class="p-5">
     <%= asset.name %>
-  </p>
+  </td>
 
   <% unless asset.description.blank? %>
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Description:</strong>
+    <td class="p-5">
       <%= asset.description %>
-    </p>
+    </td>
   <% end %>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this asset", asset, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this asset", edit_asset_path(asset), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+  <% if action_name != "show" && show_asset_link %>
+    <td class="p-5">
+      <%= link_to "Edit this asset", edit_asset_path(asset), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    </td>
   <% end %>
-</div>
+</tr>

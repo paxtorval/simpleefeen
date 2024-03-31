@@ -1,6 +1,8 @@
 <div class="flex flex-col font-mono">
   <h1 class="font-extrabold">Movement <%= @movement.concept %></h1>
-  <p style="color: green" class="di"><%= notice %></p>
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
 
   <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 shadow-md bg-clip-border rounded-xl">
     <table class="w-full text-left table-auto min-w-max">

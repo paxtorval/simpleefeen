@@ -6,6 +6,7 @@ one:
   movement_date: 2023-12-10
   settled_date: 2023-12-10
   asset: bank
+  category: groceries
 
 two:
   concept: 'Payslip MyCompany'
@@ -15,6 +16,7 @@ two:
   movement_date: 2023-12-10
   settled_date: 2023-12-10
   asset: bank
+  category: groceries
 
 three:
   concept: 'The Groceries Store'
@@ -24,3 +26,4 @@ three:
   movement_date: 2023-12-10
   settled_date: 2023-12-10
   asset: bank
+  category: groceries

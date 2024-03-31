@@ -46,6 +46,11 @@
     <%= form.select :asset_id, options_for_select(MovementsHelper.get_all_assets, movement.asset_id), {}, { :class => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'} %>
   </div>
 
+  <div class="font-semibold my-3">
+    <%= form.label :category_id, class: 'block' %>
+    <%= form.select :category_id, options_for_select(MovementsHelper.get_all_categories, movement.category_id), {}, { :class => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'} %>
+  </div>
+
   <div class="my-3">
     <button class="w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none p-15">
     <%= form.submit %>

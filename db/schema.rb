@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_224451) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_28_235025) do
   create_table "assets", force: :cascade do |t|
     t.integer "kind"
     t.string "country"
     t.string "currency"
     t.text "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.text "name"
+    t.text "description"
+    t.string "bg_color"
+    t.string "text_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,7 +40,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_224451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "asset_id", null: false
+    t.integer "category_id"
     t.index ["asset_id"], name: "index_movements_on_asset_id"
+    t.index ["category_id"], name: "index_movements_on_category_id"
   end
 
   create_table "solid_cache_entries", force: :cascade do |t|
@@ -135,6 +146,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_224451) do
   end
 
   add_foreign_key "movements", "assets"
+  add_foreign_key "movements", "categories"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

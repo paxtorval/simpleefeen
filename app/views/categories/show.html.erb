@@ -1,0 +1,29 @@
+<div class="flex flex-col font-mono">
+  <h1 class="font-extrabold">Movement <%= @category.name %></h1>
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 shadow-md bg-clip-border rounded-xl">
+    <table class="w-full text-left table-auto min-w-max">
+      <thead>
+      <tr>
+        <th class="p-5 border-b border-gray-100 bg-gray-200">id</th>
+        <th class="p-5 border-b border-gray-100 bg-gray-200">Name</th>
+        <th class="p-5 border-b border-gray-100 bg-gray-200">Description</th>
+        <th class="p-5 border-b border-gray-100 bg-gray-200">Background Color</th>
+        <th class="p-5 border-b border-gray-100 bg-gray-200">Text Color</th>
+        <th class="p-5 border-b border-gray-100 bg-gray-200">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @category %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to "Edit this category", edit_category_path(@category), class: "w-full text-center p-5 rounded bg-blue-600 text-white my-3" %>
+  <%= button_to "Destroy this category", category_path(@category), method: :delete, class: "w-full text-center p-5 rounded bg-blue-600 text-white my-3" %>
+  <%= link_to "Back to categories", categories_path, class: "w-full text-center p-5 rounded bg-blue-600 text-white my-3" %>
+</div>
+</div>
