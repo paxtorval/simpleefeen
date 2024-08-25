@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :import_configs
   resources :categories
   resources :assets
   resources :movements

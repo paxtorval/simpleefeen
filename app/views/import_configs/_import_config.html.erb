@@ -1,0 +1,17 @@
+<div id="<%= dom_id import_config %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Asset:</strong>
+    <%= import_config.asset_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Config:</strong>
+    <%= import_config.config %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this import config", import_config, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this import config", edit_import_config_path(import_config), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

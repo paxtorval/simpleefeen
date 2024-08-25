@@ -14,10 +14,14 @@ module Graphs
     end
 
     def movements_by_day
-      debits = Movement.where('original_amount >= 0').group_by_month(:settled_date, range: 10.months.ago..Time.now).sum(:original_amount)
+      debits = Movement.where('original_amount >= 0')
+                       .group_by_month(:settled_date, range: 13.months.ago..Time.now)
+                       .sum(:original_amount)
 
-      credits = Movement.where('original_amount < 0').group_by_month(:settled_date, range: 10.months.ago..Time.now).sum(:original_amount)
-      credits.transform_values! { |value| value.abs }
+      credits = Movement.where('original_amount < 0')
+                        .group_by_month(:settled_date, range: 13.months.ago..Time.now)
+                        .sum(:original_amount)
+      credits.transform_values!(&:abs)
 
       puts debits.inspect
       puts credits.inspect
@@ -27,7 +31,8 @@ module Graphs
         },
         {
           name: 'Credits', data: credits
-        }]
+        }
+      ]
     end
   end
 end

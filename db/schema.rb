@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_28_235025) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_05_215324) do
   create_table "assets", force: :cascade do |t|
     t.integer "kind"
     t.string "country"
@@ -28,6 +28,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_235025) do
     t.string "text_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "import_configs", force: :cascade do |t|
+    t.integer "asset_id", null: false
+    t.json "config"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_import_configs_on_asset_id"
   end
 
   create_table "movements", force: :cascade do |t|
@@ -145,7 +153,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_235025) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
-  add_foreign_key "movements", "assets"
+  add_foreign_key "import_configs", "assets", on_delete: :cascade
+  add_foreign_key "movements", "assets", on_delete: :cascade
   add_foreign_key "movements", "categories"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
