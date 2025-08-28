@@ -14,12 +14,15 @@ module Graphs
     end
 
     def movements_by_day
+      time_unit = params[:time_unit]
+      number_of_units = params[:number_of_units]
+
       debits = Movement.where('original_amount >= 0')
-                       .group_by_month(:settled_date, range: 13.months.ago..Time.now)
+                       .group_by_month(:settled_date, range: start_time(number_of_units, time_unit).ago..Time.now)
                        .sum(:original_amount)
 
       credits = Movement.where('original_amount < 0')
-                        .group_by_month(:settled_date, range: 13.months.ago..Time.now)
+                        .group_by_month(:settled_date, range: start_time(number_of_units, time_unit).ago..Time.now)
                         .sum(:original_amount)
       credits.transform_values!(&:abs)
 
@@ -33,6 +36,15 @@ module Graphs
           name: 'Credits', data: credits
         }
       ]
+    end
+
+    private
+
+    def start_time(number, time_unit)
+      normalised_number = number&.to_i&.positive? ? number.to_i : 1
+      normalised_time_unit = time_unit.presence || 'month'
+
+      normalised_number.send(normalised_time_unit)
     end
   end
 end

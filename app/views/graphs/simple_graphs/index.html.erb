@@ -1,8 +1,19 @@
 <div class="flex flex-col font-mono w-2/3">
-  <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700">
-    <%= line_chart graphs_movements_by_day_path, round: 2, zeros: true, prefix: "€", thousands: I18n.t('number.format.delimiter') , decimal: I18n.t('number.format.separator'), title: 'Movements by day' %>
-  </div>
-  <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700">
-    <%= pie_chart graphs_credits_vs_debits_path, round: 2, zeros: true, prefix: "€", thousands: I18n.t('number.format.delimiter') , decimal: I18n.t('number.format.separator'), title: 'Credits vs Debits' %>
-  </div>
+  <%= form_with url: request.path, method: :get, data: { turbo_frame: "_top" }, local: true do |f| %>
+    <%= f.select :time_unit, options_for_select(GraphsHelper.get_time_units),class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full' %>
+    <%= f.select :number_of_units, options_for_select(GraphsHelper.get_unit_numbers), class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full' %>
+    <%= f.submit "Update All Charts", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= turbo_frame_tag "movements_by_day_chart" do %>
+    <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700">
+      <%= line_chart graphs_movements_by_day_path(time_unit: params[:time_unit], number_of_units: params[:number_of_units]), round: 2, zeros: true, prefix: "€", thousands: I18n.t('number.format.delimiter') , decimal: I18n.t('number.format.separator'), title: 'Movements by day' %>
+    </div>
+  <% end %>
+
+  <%= turbo_frame_tag "credits_vs_debits_chart" do %>
+    <div class="relative flex flex-col w-full h-full overflow-scroll text-gray-700">
+      <%= pie_chart graphs_credits_vs_debits_path, round: 2, zeros: true, prefix: "€", thousands: I18n.t('number.format.delimiter') , decimal: I18n.t('number.format.separator'), title: 'Credits vs Debits' %>
+    </div>
+  <% end %>
 </div>
